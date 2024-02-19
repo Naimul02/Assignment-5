@@ -1,6 +1,6 @@
 function paribahan() {
-  const bannerElement = document.getElementById("banner");
-  bannerElement.classList.add("hidden");
+  const bannerElement = document.getElementById("paribahan");
+  bannerElement.scrollIntoView({ behavior: "smooth" });
 }
 
 function calCulationAndSetBackground(elementId) {
@@ -15,6 +15,20 @@ function calCulationAndSetBackground(elementId) {
 
   const count = calculation();
   console.log(count);
+}
+function checkAndEnableButton(element) {
+  const selected = element;
+  let count = 0;
+  if (selected) {
+    count = count + 1;
+  }
+
+  console.log(count);
+  const inputValue = document.getElementById("number-field");
+
+  if (count > 0 && inputValue.value !== "") {
+    document.getElementById("next-btn").removeAttribute("disabled");
+  }
 }
 
 function setInfos(element) {
@@ -61,6 +75,7 @@ function totalPrice(element) {
 function discountWithCopupon() {
   const inputElement = document.getElementById("remove-disabled");
   const value = inputElement.value;
+
   // console.log(value);
 
   // document.getElementById("apply-btn").classList.add("btn-disabled");
@@ -97,7 +112,10 @@ function discountWithCopupon() {
 
     const grandTotal = totalPriceVai - discount;
     document.getElementById("grand-total").innerText = grandTotal;
+
+    document.getElementById("remove-label-disbled").classList.add("hidden");
   } else if (value === "Couple 20") {
+    console.log(value);
     const totalPriceString = document.getElementById("total-price");
     const totalPriceVai = parseInt(totalPriceString.innerText);
     const discount = (totalPriceVai * 20) / 100;
@@ -123,5 +141,9 @@ function discountWithCopupon() {
 
     const grandTotal = totalPriceVai - discount;
     document.getElementById("grand-total").innerText = grandTotal;
+
+    document.getElementById("remove-label-disbled").classList.add("hidden");
+  } else {
+    alert("The coupon code you entered is not valid");
   }
 }

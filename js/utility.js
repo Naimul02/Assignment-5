@@ -24,19 +24,10 @@ function getElementValueById(elementId) {
   const elementValue = parseInt(elementText);
   return elementValue;
 }
-function checkAndEnableButton(element) {
-  const selected = element;
-  const inputValue = document.getElementById("number-field").value;
-  // console.log(selected, typeof inputValue);
-
-  if (selected && inputValue !== "") {
-    document.getElementById("next-btn").removeAttribute("disabled");
-  }
-}
 
 function couponCodeEnable(element) {
   const countElement = document.getElementById("count");
-  console.log(countElement);
+  // console.log(countElement);
   const count = parseInt(countElement.innerText) + 1;
 
   if (count === 4) {
@@ -50,6 +41,8 @@ function couponCodeEnable(element) {
       kbd.classList.add("btn-disabled");
     }
 
-    alert("You have already selected four tickets");
+    alert(
+      "You have already selected four tickets. You cannot select any other tickets"
+    );
   }
 }
