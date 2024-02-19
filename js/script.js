@@ -16,17 +16,11 @@ function calCulationAndSetBackground(elementId) {
   const count = calculation();
   console.log(count);
 }
-function checkAndEnableButton(element) {
-  const selected = element;
-  let count = 0;
-  if (selected) {
-    count = count + 1;
-  }
-
-  console.log(count);
+function checkAndEnableButton() {
   const inputValue = document.getElementById("number-field");
+  console.log(inputValue.value.length);
 
-  if (count > 0 && inputValue.value !== "") {
+  if (inputValue.value.length > 0) {
     document.getElementById("next-btn").removeAttribute("disabled");
   }
 }
